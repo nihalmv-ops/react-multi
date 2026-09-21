@@ -4,42 +4,64 @@ import users from "../data/user";
 function Users() {
   return (
     <section className="min-h-screen px-6 py-12">
+      <div className="mx-auto max-w-6xl">
 
-      <div className="max-w-6xl mx-auto">
+        {/* Page Header */}
+        <div className="mb-12 text-center">
+          <p className="mb-2 font-semibold text-blue-600">
+            Our Community
+          </p>
 
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-slate-900 mb-3">
+          <h1 className="mb-4 text-4xl font-bold text-slate-900 md:text-5xl">
             Users
           </h1>
 
-          <p className="text-slate-600">
-            Select a user to view their details.
+          <p className="mx-auto max-w-xl text-slate-600">
+            Browse our users and select any profile to view
+            their complete information.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* User Count */}
+        <div className="mb-8 rounded-xl bg-blue-50 p-4 text-center">
+          <p className="font-medium text-blue-700">
+            Total Users: {users.length}
+          </p>
+        </div>
+
+        {/* User Cards */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
           {users.map((user) => (
             <div
               key={user.id}
-              className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
+              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
 
-              <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold mb-4">
+              {/* Avatar */}
+              <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-blue-100 text-3xl font-bold text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
                 {user.name.charAt(0)}
               </div>
 
-              <h2 className="text-xl font-semibold text-slate-900 mb-2">
+              {/* Name */}
+              <h2 className="mb-2 text-center text-xl font-bold text-slate-900">
                 {user.name}
               </h2>
 
-              <p className="text-slate-500 mb-5">
+              {/* Email */}
+              <p className="mb-1 truncate text-center text-sm text-slate-500">
                 {user.email}
               </p>
 
+              {/* City */}
+              <p className="mb-6 text-center text-sm text-slate-500">
+                📍 {user.city}
+              </p>
+
+              {/* Details Button */}
               <Link
                 to={`/users/${user.id}`}
-                className="inline-block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                className="block w-full rounded-lg bg-blue-600 px-4 py-3 text-center font-semibold text-white transition hover:bg-blue-700"
               >
                 View Details
               </Link>
@@ -48,9 +70,7 @@ function Users() {
           ))}
 
         </div>
-
       </div>
-
     </section>
   );
 }
