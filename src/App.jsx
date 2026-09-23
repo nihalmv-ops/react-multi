@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./componets/Navbar";
 
@@ -9,7 +9,7 @@ import UserDetails from "./pages/UserDetails";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
 
       <Navbar />
 
@@ -41,7 +41,7 @@ function App() {
 
       </main>
 
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
